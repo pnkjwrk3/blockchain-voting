@@ -2,7 +2,8 @@ import React from 'react'
 import ReactDOM from 'react-dom'
 import Web3 from 'web3'
 import TruffleContract from 'truffle-contract'
-import Election from '/home/pnkj/test/mernlogin/client/src/components/dashboard/contracts/Election.json'
+import jwt_decode from 'jwt-decode'
+import Election from './contracts/Election.json'
 import Content from './Content'
 //import 'bootstrap/dist/css/bootstrap.css'
 
@@ -34,8 +35,14 @@ class Dashboard extends React.Component {
 
   componentDidMount() {
     // TODO: Refactor with promise chain
-    this.web3.eth.getCoinbase((err, account) => {
-      this.setState({ account })
+    // this.web3.eth.getCoinbase((err, account) => {
+    //   this.setState({ account })
+    const token = localStorage.usertoken
+    const decoded = jwt_decode(token)
+    this.setState({
+      account: decoded.pubkey
+    })
+      
       this.election.deployed().then((electionInstance) => {
         this.electionInstance = electionInstance
         this.watchEvents()
@@ -56,7 +63,7 @@ class Dashboard extends React.Component {
           this.setState({ hasVoted, loading: false })
         })
       })
-    })
+    // })
   }
 
   watchEvents() {
