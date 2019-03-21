@@ -8,7 +8,8 @@ class Login extends Component {
         this.state = {
             email: '',
             password: '',
-            pubkey: '0x0'
+            pubkey: '0x0',
+            error: ''
         }
 
         this.onChange = this.onChange.bind(this)
@@ -43,6 +44,11 @@ class Login extends Component {
         }
 
         login(user).then(res => {
+            // if (!res.error) {
+            //     this.props.history.push(`/profile`)
+            // } else {
+            //     this.setState({ error: res.error })
+            // }
             if (res) {
                 this.props.history.push(`/profile`)
             }
@@ -77,6 +83,8 @@ class Login extends Component {
                                 />
                             </div>
                             <p>Your account: {this.state.pubkey}</p>
+                            <div className="alert alert-danger"
+                                style={{ visibility: this.state.error !== '' ? 'visible' : 'hidden' }}>{this.state.error}</div>
                             <button type="submit"
                                 className="btn btn-lg btn-primary btn-block">
                                 Sign in
