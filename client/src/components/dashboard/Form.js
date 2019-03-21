@@ -7,7 +7,7 @@ class Form extends React.Component {
         event.preventDefault()
         this.props.castVote(this.candidateId.value)
       }}>
-        <div class='form-group'>
+        <div className='form-group'>
           <label>Select Candidate</label>
           <select ref={(input) => this.candidateId = input} class='form-control'>
             {this.props.candidates.map((candidate) => {

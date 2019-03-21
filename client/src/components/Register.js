@@ -10,7 +10,8 @@ class Register extends Component {
             last_name: '',
             email: '',
             password: '',
-            pubkey: '0x0'
+            pubkey: ''
+            //loading:true
         }
 
         this.onChange = this.onChange.bind(this)
@@ -23,6 +24,7 @@ class Register extends Component {
           }
       
         this.web3 = new Web3(this.web3Provider)
+
     }
 
     onChange (e) {
@@ -49,7 +51,10 @@ class Register extends Component {
         this.web3.eth.getCoinbase((err,pubkey) =>{
             this.setState({pubkey})
         });
+
     }
+
+
 
     render () {
         return (

@@ -22,7 +22,9 @@ users.post('/register', (req, res) => {
 
     User.findOne({
         where: {
-            email: req.body.email
+            [Op.or]:
+            [{email: req.body.email},
+            {pubkey: req.body.pubkey}]
         }
     })
         .then(user => {
@@ -42,14 +44,15 @@ users.post('/register', (req, res) => {
             }
         })
         .catch(err => {
-            res.send('error: ' + err)
+            res.send(': ' + err)
         })
 })
 
 users.post('/login', (req, res) => {
     User.findOne({
         where: {
-            email: req.body.email
+            email: req.body.email,
+            pubkey: req.body.pubkey
         }
     })
         .then(user => {

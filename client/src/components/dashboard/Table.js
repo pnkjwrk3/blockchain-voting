@@ -3,7 +3,7 @@ import React from 'react'
 class Table extends React.Component {
   render() {
     return (
-      <table class='table'>
+      <table className='table'>
         <thead>
           <tr>
             <th>#</th>
