@@ -44,7 +44,7 @@ users.post('/register', (req, res) => {
             }
         })
         .catch(err => {
-            res.send(': ' + err)
+            res.send('error: ' + err)
         })
 })
 
