@@ -87,7 +87,7 @@ class Dashboard extends React.Component {
     return (
       <div className='row'>
         <div className='col-lg-12 text-center' >
-          <h1>Election Results</h1>
+          <h1>E-Voting</h1>
           <br/>
           { this.state.loading || this.state.voting
             ? <p className='text-center'>Loading...</p>

@@ -10,8 +10,9 @@ class Register extends Component {
             last_name: '',
             email: '',
             password: '',
-            pubkey: ''
+            pubkey: '',
             //loading:true
+            error: ''
         }
 
         this.onChange = this.onChange.bind(this)
@@ -19,19 +20,19 @@ class Register extends Component {
 
         if (typeof window.web3 !== 'undefined') {
             this.web3Provider = window.web3.currentProvider
-          } else {
+        } else {
             this.web3Provider = new Web3.providers.HttpProvider('http://localhost:8545')
-          }
-      
+        }
+
         this.web3 = new Web3(this.web3Provider)
 
     }
 
-    onChange (e) {
+    onChange(e) {
         this.setState({ [e.target.name]: e.target.value })
     }
 
-    onSubmit (e) {
+    onSubmit(e) {
         e.preventDefault()
 
         const user = {
@@ -43,20 +44,26 @@ class Register extends Component {
         }
 
         register(user).then(res => {
+            // if (!res.error) {
+            //     this.props.history.push(`/login`)
+            // } else {
+            //     console.log(res.json().error)
+            //     this.setState({ error: res.json().error })
+            // }
             this.props.history.push(`/login`)
         })
     }
 
     componentDidMount() {
-        this.web3.eth.getCoinbase((err,pubkey) =>{
-            this.setState({pubkey})
+        this.web3.eth.getCoinbase((err, pubkey) => {
+            this.setState({ pubkey })
         });
 
     }
 
 
 
-    render () {
+    render() {
         return (
             <div className="container">
                 <div className="row">
@@ -104,6 +111,8 @@ class Register extends Component {
                                 />
                             </div>
                             <p>Your account: {this.state.pubkey}</p>
+                            <div className="alert alert-danger"
+                                style={{ visibility: this.state.error !== '' ? 'visible' : 'hidden' }}>{this.state.error}</div>
                             <button type="submit"
                                 className="btn btn-lg btn-primary btn-block">
                                 Register

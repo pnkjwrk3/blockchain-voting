@@ -3,6 +3,8 @@ const users = express.Router()
 const cors = require('cors')
 const jwt = require("jsonwebtoken")
 const bcrypt = require('bcrypt')
+const Sequelize = require('sequelize');
+const Op = Sequelize.Op;
 
 const User = require("../models/User")
 users.use(cors())
@@ -40,7 +42,7 @@ users.post('/register', (req, res) => {
                         })
                 })
             } else {
-                res.json({ error: "User already exists" })
+                res.send({ error: "User already exists" })
             }
         })
         .catch(err => {

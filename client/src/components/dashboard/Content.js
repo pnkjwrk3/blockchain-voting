@@ -6,7 +6,11 @@ class Content extends React.Component {
   render() {
     return (
       <div>
-        <Table candidates={this.props.candidates} />
+        
+        { this.props.hasVoted ?
+          <Table candidates={this.props.candidates}  />
+          : null
+        }
         <hr/>
         { !this.props.hasVoted ?
           <Form candidates={this.props.candidates} castVote={this.props.castVote} />
