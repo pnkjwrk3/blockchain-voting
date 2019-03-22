@@ -7,7 +7,7 @@ class Table extends React.Component {
       <table className='table'>
         <thead>
           <tr>
-            <th>#</th>
+            {/* <th>#</th> */}
             <th>Name</th>
             <th>Votes</th>
           </tr>
@@ -16,7 +16,7 @@ class Table extends React.Component {
           {this.props.candidates.map((candidate) => {
             return(
               <tr>
-                <th>{candidate.id.toNumber()}</th>
+                {/* <th>{candidate.id.toNumber()}</th> */}
                 <td>{candidate.name}</td>
                 <td>{candidate.voteCount.toNumber()}</td>
               </tr>
