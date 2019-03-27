@@ -7,7 +7,7 @@
     "dev": "nodemon server.js",
     "client": "cd client && npm run start",
     "start": "concurrently --kill-others-on-fail \"npm run dev\" \"npm run client\" ",
-    "heroku-postbuild": "cd client && npm install && npm run build"
+    "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false cd client && npm install && npm run build"
   },
   "author": "",
   "license": "ISC",
