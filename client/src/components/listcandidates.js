@@ -1,7 +1,7 @@
 import React from 'react'
 import Chart from 'react-google-charts';
 
-class Candidates extends React.Component {
+class ListCandidates extends React.Component {
   render() {
     return (
       <table className='table'>
@@ -39,4 +39,4 @@ class Candidates extends React.Component {
   }
 }
 
-export default Candidates
+export default ListCandidates

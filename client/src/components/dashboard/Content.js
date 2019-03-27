@@ -1,6 +1,7 @@
 import React from 'react'
 import TestChart from './testchart'
 import Form from './Form'
+import ListCandidates from './listcandidates'
 
 class Content extends React.Component {
   render() {
@@ -9,7 +10,8 @@ class Content extends React.Component {
         
         { this.props.hasVoted ?
           <TestChart candidates={this.props.candidates}  />
-          : null
+          :null
+          // : <ListCandidates candidates={this.props.candidates}  />
         }
         <hr/>
         { !this.props.hasVoted ?
