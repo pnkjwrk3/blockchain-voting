@@ -9,7 +9,7 @@ class Form extends React.Component {
       }}>
         <div className='form-group'>
           <label>Select Candidate</label>
-          <select ref={(input) => this.candidateId = input} class='form-control'>
+          <select ref={(input) => this.candidateId = input} className='form-control'>
             {this.props.candidates.map((candidate) => {
               return <option value={candidate.id}>{candidate.name}</option>
             })}

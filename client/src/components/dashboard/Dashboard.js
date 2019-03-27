@@ -16,6 +16,7 @@ class Dashboard extends React.Component {
       hasVoted: false,
       loading: true,
       voting: false,
+      contractadd:'0x34112d8Cb31cb639Bd94aDe03B1e9fd197F8472D'
     }
 
     if (typeof window.web3 !== 'undefined') {
@@ -62,6 +63,7 @@ class Dashboard extends React.Component {
         this.electionInstance.voters(this.state.account).then((hasVoted) => {
           this.setState({ hasVoted, loading: false })
         })
+        //console.log(Election.stringify())
       })
     // })
   }
@@ -95,7 +97,8 @@ class Dashboard extends React.Component {
                 account={this.state.account}
                 candidates={this.state.candidates}
                 hasVoted={this.state.hasVoted}
-                castVote={this.castVote} />
+                castVote={this.castVote}
+                contractadd = {this.state.contractadd} />
           }
         </div>
       </div>
