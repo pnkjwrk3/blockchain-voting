@@ -16,7 +16,7 @@ class Dashboard extends React.Component {
       hasVoted: false,
       loading: true,
       voting: false,
-      contractadd:'0x34112d8Cb31cb639Bd94aDe03B1e9fd197F8472D'
+      contractadd:'0x5D11d56F5ECd1359DC3306758B3f8b68045A562D'
     }
 
     if (typeof window.web3 !== 'undefined') {

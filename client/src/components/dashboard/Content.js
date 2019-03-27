@@ -10,8 +10,8 @@ class Content extends React.Component {
         
         { this.props.hasVoted ?
           <TestChart candidates={this.props.candidates}  />
-          :null
-          // : <ListCandidates candidates={this.props.candidates}  />
+          // :null
+          : <ListCandidates candidates={this.props.candidates}  />
         }
         <hr/>
         { !this.props.hasVoted ?
