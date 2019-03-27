@@ -1,5 +1,5 @@
 import React from 'react'
-import Table from './Table'
+import TestChart from './testchart'
 import Form from './Form'
 
 class Content extends React.Component {
@@ -8,7 +8,7 @@ class Content extends React.Component {
       <div>
         
         { this.props.hasVoted ?
-          <Table candidates={this.props.candidates}  />
+          <TestChart candidates={this.props.candidates}  />
           : null
         }
         <hr/>
