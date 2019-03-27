@@ -1,7 +1,8 @@
 const Sequelize = require("sequelize")
 const db = {}
-const sequelize = new Sequelize("nodejs_login1", "sammy", "1234", {
-    host: 'localhost',
+const sequelize = new Sequelize("CSe9oMyNig", "CSe9oMyNig", "T7JPtShbuM", {
+    host: 'remotemysql.com',
+    port:3306,
     dialect: 'mysql',
     operatorsAliases: false,
 
