@@ -10,6 +10,7 @@ class Form extends React.Component {
         <div className='form-group'>
           <label>Select Candidate</label>
           <select ref={(input) => this.candidateId = input} className='form-control'>
+            <option value="Select candidate" disabled> </option>
             {this.props.candidates.map((candidate) => {
               return <option value={candidate.id}>{candidate.name}</option>
             })}
