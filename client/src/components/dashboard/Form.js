@@ -1,9 +1,7 @@
 import React from 'react'
-import { Radio } from 'antd';
 
 class Form extends React.Component {
   render() {
-    const RadioGroup = Radio.Group;
     return (
       <form onSubmit={(event) => {
         event.preventDefault()
