@@ -19,7 +19,7 @@ class Content extends React.Component {
           : null
         }
         <p>Your account: {this.props.account}</p>
-        {/* <p>Contract address:{this.props.contractadd}</p> */}
+        <p>Contract address:{this.props.contractadd}</p>
       </div>
     )
   }
