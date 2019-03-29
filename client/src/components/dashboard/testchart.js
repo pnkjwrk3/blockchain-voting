@@ -11,6 +11,7 @@ class TestChart extends React.Component {
     return (
       <div className='row'>
         <div className='col-lg-12 text-center' >
+        <h4 style={{color:"green"}}>Your Vote has been registered successfully</h4>
           <Chart
             width={'700px'}
             height={'400px'}
