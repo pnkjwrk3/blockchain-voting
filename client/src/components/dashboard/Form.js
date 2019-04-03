@@ -15,10 +15,10 @@ class Form extends React.Component {
   }
   render() {
     const radioStyle = {
-      display: 'block',
-      fontSize:'30px',
-      lineHeight: 'normal',
-      marginTop: '((@line-height-base - 1)/2) * 1px'
+      display: 'flex',
+      fontSize:'20px',
+      flexDirection: 'row',
+      paddingLeft:'500px',
     };
     return (
       <form onSubmit={(event) => {
@@ -26,8 +26,8 @@ class Form extends React.Component {
         // this.props.castVote(this.candidateId.value)
         this.props.castVote(this.state.voteId)
       }}>
-        <div className='form-group'>
-          <label style={{fontSize:'40px',color:"Red"}}>Select Candidate</label>
+        <div className='form-vertical'>
+          <label style={{fontSize:'30px'}}>Select Candidate</label>
           {/* <select ref={(input) => this.candidateId = input} className='form-control'>
             <option disabled selected>---Select candidate---</option>
             {this.props.candidates.map((candidate) => {
@@ -36,7 +36,7 @@ class Form extends React.Component {
           </select> */}
           <RadioGroup onChange={this.onChange} value={this.state.voteId}>
           {this.props.candidates.map((candidate) => {
-              return <Radio style={radioStyle}value={candidate.id}>{candidate.name}</Radio>
+              return <Radio style={radioStyle} value={candidate.id}>{candidate.name}</Radio>
             })}
           </RadioGroup>
         </div>
