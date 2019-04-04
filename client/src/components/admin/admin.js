@@ -8,7 +8,7 @@ class Admin extends React.Component {
     constructor(props) {
         super(props)
         this.state = {
-            account: '0x0',
+            account: '0xAfa64655DFFe7383E0E7F4Ed912DB84b608C2CAA',
             candidates: [],
             contractadd: '0x'
         }
@@ -28,3 +28,5 @@ class Admin extends React.Component {
         )
     }
 }
+
+export default Admin;
