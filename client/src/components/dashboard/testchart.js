@@ -30,6 +30,7 @@ class TestChart extends React.Component {
           {this.state.show && (<div style = {{position:'relative', left:'80px'}}>  <Chart
             width={'700px'}
             height={'400px'}
+      top={'10px'}
             chartType="PieChart"
             loader={<div>Loading Chart</div>}
             data={data_temp}
