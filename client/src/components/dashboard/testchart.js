@@ -26,10 +26,11 @@ class TestChart extends React.Component {
         <div >
           <h4 style={{ color: "green" }}>Your Vote has been registered successfully</h4>
           <h6>Click below to check results</h6>
-          <Button onClick={this.showTable}>Result</Button>
+          <button onClick={this.showTable} class='btn btn-primary'>Result</button>
           {this.state.show && (<div style = {{position:'relative', left:'80px'}}>  <Chart
             width={'700px'}
             height={'400px'}
+      top={'10px'}
             chartType="PieChart"
             loader={<div>Loading Chart</div>}
             data={data_temp}
