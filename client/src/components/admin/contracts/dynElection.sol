@@ -54,6 +54,7 @@ contract Election {
         //require(voters[msg.sender].authorized);
         require(!votingEnded);
         require(votingStarted);
+        require(!(msg.sender == owner));
 
         // require a valid candidate
         require(_candidateId > 0 && _candidateId <= candidatesCount);
