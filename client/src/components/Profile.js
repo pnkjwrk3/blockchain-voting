@@ -5,7 +5,7 @@ class Profile extends Component {
     constructor() {
         super()
         this.state = {
-            uuid: '',
+            id: '',
             first_name: '',
             last_name: '',
             email: '',
@@ -17,7 +17,7 @@ class Profile extends Component {
         const token = localStorage.usertoken
         const decoded = jwt_decode(token)
         this.setState({
-            uuid: decoded.id,
+            id: decoded.id,
             first_name: decoded.first_name,
             last_name: decoded.last_name,
             email: decoded.email,
@@ -36,7 +36,7 @@ class Profile extends Component {
                         <tbody>
                             <tr>
                                 <td>UUID</td>
-                                <td>{this.state.uuid}</td>
+                                <td>{this.state.id}</td>
                             </tr>
                             <tr>
                                 <td>First Name</td>
