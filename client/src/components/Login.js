@@ -9,8 +9,8 @@ class Login extends Component {
             email: '',
             password: '',
             pubkey: '0x0',
-            error: '',
-            UID: ''
+            error: ''
+            //UID: ''
         }
 
         this.onChange = this.onChange.bind(this)
@@ -41,8 +41,8 @@ class Login extends Component {
         const user = {
             email: this.state.email,
             password: this.state.password,
-            pubkey: this.state.pubkey,
-            UID: this.state.UID
+            pubkey: this.state.pubkey
+            //UID: this.state.UID
         }
 
         login(user).then(res => {
@@ -85,7 +85,7 @@ class Login extends Component {
                                     onChange={this.onChange}
                                 />
                             </div>
-                            <div className="form-group">
+                            {/* <div className="form-group">
                                 <label htmlFor="UID">UID</label>
                                 <input type="text"
                                     className="form-control"
@@ -94,7 +94,7 @@ class Login extends Component {
                                     value={this.state.UID}
                                     onChange={this.onChange}
                                 />
-                            </div>
+                            </div> */}
                             <p>Your account: {this.state.pubkey}</p>
                             <div className="alert alert-danger"
                                 style={{ visibility: this.state.error !== '' ? 'visible' : 'hidden' }}>{this.state.error}</div>

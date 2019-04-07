@@ -22,8 +22,8 @@ export const login = user => {
         .post('users/login', {
             email: user.email,
             password: user.password,
-            pubkey: user.pubkey,
-            UID: user.UID
+            pubkey: user.pubkey
+            //UID: user.UID
         })
         .then(res => {
             localStorage.setItem('usertoken', res.data)
