@@ -30,11 +30,11 @@ class Navbar extends Component {
                         User
                     </Link>
                 </li>
-                <li className="nav-item">
+                {/* <li className="nav-item">
                     <Link to="/dashboard" className="nav-link">
                         Vote
                     </Link>
-                </li>
+                </li> */}
                 <li className="nav-item">
                     <a href="" onClick={this.logOut.bind(this)} className="nav-link">
                         Logout

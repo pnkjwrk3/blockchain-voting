@@ -7,6 +7,7 @@ const Sequelize = require('sequelize');
 const Op = Sequelize.Op;
 
 const User = require("../models/User")
+const Contract = require("../models/contract")
 users.use(cors())
 
 process.env.SECRET_KEY = 'secret'
@@ -72,6 +73,28 @@ users.post('/login', (req, res) => {
                 }
             } else {
                 //alert("Invalid combination of password and key")
+                res.status(400).json({ error: 'User does not exist' })
+            }
+        })
+        .catch(err => {
+            res.status(400).json({ error: err })
+        })
+})
+
+users.post('/findAddress', (req, res) => {
+    Contract.findOne({
+        where: {
+            name: req.body.name
+        }
+    })
+        .then(user => {
+            if (user) {   
+                    // let token = jwt.sign(user.dataValues, process.env.SECRET_KEY, {
+                    //     expiresIn: 1440
+                    // })
+                    let data2 = user.dataValues
+                    res.send(data2) 
+            } else {
                 res.status(400).json({ error: 'User does not exist' })
             }
         })

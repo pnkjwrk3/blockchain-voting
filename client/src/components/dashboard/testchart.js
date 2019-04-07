@@ -24,13 +24,17 @@ class TestChart extends React.Component {
     return (
       <div >
         <div >
-          <h4 style={{ color: "green" }}>Your Vote has been registered successfully</h4>
-          <h6>Click below to check results</h6>
-          <button onClick={this.showTable} class='btn btn-primary'>Result</button>
-          {this.state.show && (<div style = {{position:'relative', left:'80px'}}>  <Chart
+        {this.props.hasVoted
+          ?<h4 style={{ color: "green" }}>Your Vote has been registered successfully</h4>
+          :<h4 style={{ color: "green" }}>You forgot to vote.</h4>}
+          
+          {!this.props.voteEnd
+          ?<h6>Wait for voting to end to see results.</h6>
+          :<button onClick={this.showTable} class='btn btn-primary'>Result</button>}
+          
+          {this.state.show && (<div style = {{position:'relative', left:'80px', top:'5px'}}>  <Chart
             width={'700px'}
             height={'400px'}
-      top={'10px'}
             chartType="PieChart"
             loader={<div>Loading Chart</div>}
             data={data_temp}

@@ -12,14 +12,14 @@ export const register = newUser => {
 
 }
 
-export const login = user => {
+export const findAddress = user => {
     return axios
-        .post('contracts/login', {
+        .post('users/findAddress', {
             name: user.name
         })
         .then(res => {
-            //localStorage.setItem('coninst', res.data)
-            //console.log(res.data)
+            // localStorage.setItem('coninst', res.data)
+            // console.log(res.data)
             return res.data
         })
         .catch(err => {

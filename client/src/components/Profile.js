@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import jwt_decode from 'jwt-decode'
+import { findAddress } from './dashboard/ContractFunctions'
 
 class Profile extends Component {
     constructor() {
@@ -10,13 +11,15 @@ class Profile extends Component {
             email: '',
             account: '0x0',
             UID:'',
-            constname: ''
+            constname: '',
+            contractadd:''
         }
     }
 
     componentDidMount () {
         const token = localStorage.usertoken
         const decoded = jwt_decode(token)
+        console.log(token)
         this.setState({
             first_name: decoded.first_name,
             last_name: decoded.last_name,
@@ -25,6 +28,19 @@ class Profile extends Component {
             UID:decoded.UID,
             constname: decoded.constname
         })
+        const contload = {
+            name: decoded.constname
+          }
+          findAddress(contload).then(res => {
+            if (res) {
+              console.log(res.address);
+              this.setState({ contractadd: res.address });
+            }
+          });
+    }
+
+    loadDash=()=>{
+        this.props.history.push({ pathname: '/dashboard', state:{contractadd:this.state.contractadd}})
     }
 
     render () {
@@ -62,6 +78,7 @@ class Profile extends Component {
                             </tr>
                         </tbody>
                     </table>
+                    <button className={'btn btn-primary'} style={{flex:1, marginLeft:'400px'}} onClick={this.loadDash} >Click here to vote</button>
                 </div>
             </div>
         )
