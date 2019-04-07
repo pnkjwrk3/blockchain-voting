@@ -7,10 +7,12 @@ export const register = newUser => {
             last_name: newUser.last_name,
             email: newUser.email,
             password: newUser.password,
-            pubkey: newUser.pubkey
+            pubkey: newUser.pubkey,
+            UID: newUser.UID,
+            constname: newUser.constname
         })
         .then(res => {
-            console.log("Registered")
+            console.log("Registered"+res)
         })
 
 }
@@ -20,7 +22,8 @@ export const login = user => {
         .post('users/login', {
             email: user.email,
             password: user.password,
-            pubkey: user.pubkey
+            pubkey: user.pubkey,
+            UID: user.UID
         })
         .then(res => {
             localStorage.setItem('usertoken', res.data)

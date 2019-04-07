@@ -11,6 +11,8 @@ class Register extends Component {
             email: '',
             password: '',
             pubkey: '',
+            UID:'',
+            constname: '',
             //loading:true
             error: ''
         }
@@ -40,7 +42,9 @@ class Register extends Component {
             last_name: this.state.last_name,
             email: this.state.email,
             password: this.state.password,
-            pubkey: this.state.pubkey
+            pubkey: this.state.pubkey,
+            UID: this.state.UID,
+            constname:this.state.constname
         }
 
         register(user).then(res => {
@@ -107,6 +111,26 @@ class Register extends Component {
                                     name="password"
                                     placeholder="Enter Password"
                                     value={this.state.password}
+                                    onChange={this.onChange}
+                                />
+                            </div>
+                            <div className="form-group">
+                                <label htmlFor="UID">UID</label>
+                                <input type="text"
+                                    className="form-control"
+                                    name="UID"
+                                    placeholder="Enter UID"
+                                    value={this.state.UID}
+                                    onChange={this.onChange}
+                                />
+                            </div>
+                            <div className="form-group">
+                                <label htmlFor="constname">Constituency</label>
+                                <input type="text"
+                                    className="form-control"
+                                    name="constname"
+                                    placeholder="Enter Constituency"
+                                    value={this.state.constname}
                                     onChange={this.onChange}
                                 />
                             </div>

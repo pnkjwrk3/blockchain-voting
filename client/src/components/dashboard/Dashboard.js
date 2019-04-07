@@ -16,7 +16,7 @@ class Dashboard extends React.Component {
       hasVoted: false,
       loading: true,
       voting: false,
-      contractadd:'0x5D11d56F5ECd1359DC3306758B3f8b68045A562D'
+      contractadd:'0x0'
     }
 
     if (typeof window.web3 !== 'undefined') {
@@ -27,8 +27,8 @@ class Dashboard extends React.Component {
 
     this.web3 = new Web3(this.web3Provider)
 
-    this.election = TruffleContract(Election)
-    this.election.setProvider(this.web3Provider)
+    //this.election = TruffleContract(Election)
+    //this.election.setProvider(this.web3Provider)
 
     this.castVote = this.castVote.bind(this)
     this.watchEvents = this.watchEvents.bind(this)

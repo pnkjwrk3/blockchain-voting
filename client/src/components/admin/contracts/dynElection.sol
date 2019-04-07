@@ -12,11 +12,11 @@ contract Election {
         uint voteCount;
     }
 
-    struct Voter {
-        //bool authorized;
-        bool voted;
-        uint vote;
-    }
+    // struct Voter {
+    //     //bool authorized;
+    //     bool voted;
+    //     uint vote;
+    // }
 
     address public owner;
     string public electionName;
@@ -24,9 +24,12 @@ contract Election {
     bool public votingEnded;
     bool public votingStarted;
 
-    mapping(address => Voter) public voters;
+    // mapping(address => Voter) public voters;
     //Candidate[] public candidates;
     mapping(uint => Candidate) public candidates;
+
+    // Store accounts that have voted
+    mapping(address => bool) public voters;
 
     modifier ownerOnly() {
         require(msg.sender == owner);
@@ -37,6 +40,11 @@ contract Election {
         owner = msg.sender;
         electionName = _name;
     }
+
+    // voted event
+    event votedEvent (
+        uint indexed _candidateId
+    );
 
     function addCandidate(string memory name) ownerOnly public {
         require(!votingStarted);
@@ -50,20 +58,26 @@ contract Election {
 
     function vote(uint _candidateId) public {
         //make sure voter is authorized and has not already voted
-        require(!voters[msg.sender].voted);
+        require(!voters[msg.sender]);
+        // require(!voters[msg.sender].voted);
         //require(voters[msg.sender].authorized);
         require(!votingEnded);
         require(votingStarted);
+        require(!(msg.sender == owner));
 
         // require a valid candidate
         require(_candidateId > 0 && _candidateId <= candidatesCount);
 
         //record vote
-        voters[msg.sender].vote = _candidateId;
-        voters[msg.sender].voted = true;
+        voters[msg.sender] = true;
+        // voters[msg.sender].vote = _candidateId;
+        // voters[msg.sender].voted = true;
 
         //increase candidate vote count by 1
         candidates[_candidateId].voteCount += 1;
+
+        // trigger voted event
+        emit votedEvent(_candidateId);
     }
 
     function begin() ownerOnly public {
