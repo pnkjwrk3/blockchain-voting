@@ -2,10 +2,10 @@
 -- version 4.8.5
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1:3306
--- Generation Time: Mar 27, 2019 at 09:34 PM
--- Server version: 8.0.15
--- PHP Version: 7.2.15-0ubuntu0.18.04.1
+-- Host: localhost
+-- Generation Time: Apr 07, 2019 at 10:16 PM
+-- Server version: 8.0.13-4
+-- PHP Version: 7.2.15-0ubuntu0.18.04.2
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -19,7 +19,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `nodejs_login`
+-- Database: `Y4dJoErYsu`
 --
 
 -- --------------------------------------------------------
@@ -35,7 +35,9 @@ CREATE TABLE `users` (
   `email` text NOT NULL,
   `password` text NOT NULL,
   `created` text NOT NULL,
-  `pubkey` text NOT NULL
+  `pubkey` text NOT NULL,
+  `UID` text NOT NULL,
+  `constname` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
