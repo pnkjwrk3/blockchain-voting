@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Apr 06, 2019 at 11:40 PM
+-- Generation Time: Apr 07, 2019 at 05:38 AM
 -- Server version: 8.0.13-4
 -- PHP Version: 7.2.15-0ubuntu0.18.04.2
 
@@ -19,7 +19,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `CSe9oMyNig`
+-- Database: `C2udpse5RK`
 --
 
 -- --------------------------------------------------------
@@ -30,9 +30,15 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `contracts` (
   `id` int(11) NOT NULL,
-  `name` int(11) NOT NULL,
-  `address` int(11) NOT NULL
+  `name` text COLLATE utf8_unicode_ci NOT NULL,
+  `address` text COLLATE utf8_unicode_ci NOT NULL,
+  `created` text COLLATE utf8_unicode_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Dumping data for table `contracts`
+--
+
 
 --
 -- Indexes for dumped tables
@@ -43,6 +49,16 @@ CREATE TABLE `contracts` (
 --
 ALTER TABLE `contracts`
   ADD PRIMARY KEY (`id`);
+
+--
+-- AUTO_INCREMENT for dumped tables
+--
+
+--
+-- AUTO_INCREMENT for table `contracts`
+--
+ALTER TABLE `contracts`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
