@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom'
 import Web3 from 'web3'
 import TruffleContract from 'truffle-contract'
 import jwt_decode from 'jwt-decode'
+import browserSolc from 'browser-solc';
 
 
 
@@ -25,15 +26,15 @@ class Admin extends React.Component {
         // }
         this.web3Provider = new Web3.providers.HttpProvider('http://localhost:7545') //comment this before deploy
 
-        web3 = new Web3(this.web3Provider)
+        this.web3 = new Web3(this.web3Provider)
     }
 
     deployContract = () => {
-        var compiled = web3.eth.compile.solidity(contractCode);
+        browserSolc.getVersions(function(soljsonSources, soljsonReleases) {
+            console.log(soljsonSources);
+            console.log(soljsonReleases);
+          });
 
-        var code = compiled.code;
-        var abi = compiled.info.abiDefinition;
-        console.log(abi)
     }
 
     render() {
