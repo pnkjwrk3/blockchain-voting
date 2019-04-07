@@ -1,7 +1,6 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 import Web3 from 'web3'
-import TruffleContract from 'truffle-contract'
 import jwt_decode from 'jwt-decode'
 import Election from './contracts/Election.json'
 import Content from './Content'
@@ -32,8 +31,6 @@ class Dashboard extends React.Component {
 
     this.web3 = new Web3(this.web3Provider)
 
-    //this.election = TruffleContract(Election)
-    //this.election.setProvider(this.web3Provider)
 
     this.castVote = this.castVote.bind(this)
     this.watchEvents = this.watchEvents.bind(this)
