@@ -4,7 +4,6 @@ import Web3 from 'web3'
 import jwt_decode from 'jwt-decode'
 import Election from './contracts/Election.json'
 import Content from './Content'
-import { findAddress } from './ContractFunctions'
 //import 'bootstrap/dist/css/bootstrap.css'
 
 class Dashboard extends React.Component {
