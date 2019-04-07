@@ -8,7 +8,9 @@ class Profile extends Component {
             first_name: '',
             last_name: '',
             email: '',
-            account: '0x0'
+            account: '0x0',
+            UID:'',
+            constname: ''
         }
     }
 
@@ -19,7 +21,9 @@ class Profile extends Component {
             first_name: decoded.first_name,
             last_name: decoded.last_name,
             email: decoded.email,
-            account: decoded.pubkey
+            account: decoded.pubkey,
+            UID:decoded.UID,
+            constname: decoded.constname
         })
     }
 
@@ -47,6 +51,14 @@ class Profile extends Component {
                             <tr>
                                 <td>Account</td>
                                 <td>{this.state.account}</td>
+                            </tr>
+                            <tr>
+                                <td>UID</td>
+                                <td>{this.state.UID}</td>
+                            </tr>
+                            <tr>
+                                <td>ConstName</td>
+                                <td>{this.state.constname}</td>
                             </tr>
                         </tbody>
                     </table>

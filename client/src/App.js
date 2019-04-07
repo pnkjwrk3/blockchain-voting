@@ -7,7 +7,7 @@ import Login from './components/Login'
 import Register from './components/Register'
 import Profile from './components/Profile'
 import Dashboard from './components/dashboard/Dashboard'
-import Admin from './components/admin/Admin'
+// import Admin from './components/admin/Admin'
 
 class App extends Component {
   render () {
@@ -21,7 +21,7 @@ class App extends Component {
             <Route exact path="/login" component={Login} />
             <Route exact path="/profile" component={Profile} />
             <Route exact path="/dashboard" component={Dashboard} />
-            <Route exact path="/admin" component={Admin} />
+            {/* <Route exact path="/admin" component={Admin} /> */}
           </div>
         </div>
       </Router>

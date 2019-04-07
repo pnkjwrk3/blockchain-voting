@@ -27,6 +27,12 @@ module.exports = db.sequelize.define(
         },
         pubkey:{
             type: Sequelize.STRING
+        },
+        UID:{
+            type: Sequelize.STRING
+        },
+        constname:{
+            type: Sequelize.STRING
         }
     },
     {

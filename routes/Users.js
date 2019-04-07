@@ -19,14 +19,17 @@ users.post('/register', (req, res) => {
         email: req.body.email,
         password: req.body.password,
         created: today,
-        pubkey: req.body.pubkey
+        pubkey: req.body.pubkey,
+        UID: req.body.UID,
+        constname: req.body.constname
     }
 
     User.findOne({
         where: {
             [Op.or]:
             [{email: req.body.email},
-            {pubkey: req.body.pubkey}]
+            {pubkey: req.body.pubkey},
+            {UID:req.body.UID}]
         }
     })
         .then(user => {
@@ -54,12 +57,13 @@ users.post('/login', (req, res) => {
     User.findOne({
         where: {
             email: req.body.email,
-            pubkey: req.body.pubkey
+            pubkey: req.body.pubkey,
+            UID: req.body.UID
         }
     })
         .then(user => {
             if (user) {
-                if (bcrypt.compareSync(req.body.password, user.password) && (req.body.pubkey==user.pubkey)) {
+                if (bcrypt.compareSync(req.body.password, user.password) && (req.body.pubkey==user.pubkey) && (req.body.UID==user.UID)) {
                     let token = jwt.sign(user.dataValues, process.env.SECRET_KEY, {
                         expiresIn: 1440
                     })
