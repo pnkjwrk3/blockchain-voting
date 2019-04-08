@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
 import Web3 from 'web3'
-import TruffleContract from 'truffle-contract'
 class Landing extends Component {
 
     constructor(props) {
