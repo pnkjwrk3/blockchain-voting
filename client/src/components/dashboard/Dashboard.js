@@ -4,6 +4,7 @@ import Web3 from 'web3'
 import jwt_decode from 'jwt-decode'
 import Election from './contracts/Election.json'
 import Content from './Content'
+//import { findAddress } from './ContractFunctions'
 //import 'bootstrap/dist/css/bootstrap.css'
 
 class Dashboard extends React.Component {
@@ -106,7 +107,7 @@ class Dashboard extends React.Component {
 
   castVote(candidateId) {
     this.setState({ voting: true })
-    this.state.electionInstance.methods.vote(candidateId).send({ from: this.state.account }) .then((result) =>
+    this.state.electionInstance.methods.vote(candidateId).send({ from: this.state.account }).then((result) =>
       this.setState({ hasVoted: true })
     )
   }
