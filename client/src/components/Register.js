@@ -135,21 +135,11 @@ class Register extends Component {
                                     onChange={this.onChange}
                                 />
                             </div>
-                            <div className="form-group">
-                                <label htmlFor="constname">Constituency</label>
-                                <input type="text"
-                                    className="form-control"
-                                    name="constname"
-                                    placeholder="Enter Constituency"
-                                    value={this.state.constname}
-                                    onChange={this.onChange}
-                                />
-                            </div>
  
                             <div className="form-group">
                                 <label htmlFor="constname" >Select Constituency</label>
                                 <select name='constname' onChange={this.onChange} className='form-control'>
-                                    <option disabled value='null'>---Select constituency---</option>
+                                    <option disabled value='null' selected>---Select constituency---</option>
                                     {this.state.constlist.map((candidate) => {
                                         return <option key={candidate.id-1} value={candidate.name}>{candidate.name}</option>
                                     })}
