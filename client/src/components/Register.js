@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { register } from './UserFunctions'
 import Web3 from 'web3'
+import axios from 'axios'
 
 class Register extends Component {
     constructor() {
@@ -11,10 +12,11 @@ class Register extends Component {
             email: '',
             password: '',
             pubkey: '',
-            UID:'',
+            UID: '',
             constname: '',
             //loading:true
-            error: ''
+            error: '',
+            constlist:{'name':null}
         }
 
         this.onChange = this.onChange.bind(this)
@@ -44,7 +46,7 @@ class Register extends Component {
             password: this.state.password,
             pubkey: this.state.pubkey,
             UID: this.state.UID,
-            constname:this.state.constname
+            constname: this.state.constname
         }
 
         register(user).then(res => {
@@ -55,6 +57,15 @@ class Register extends Component {
             //     this.setState({ error: res.json().error })
             // }
             this.props.history.push(`/login`)
+        })
+    }
+
+    componentWillMount(){
+        axios
+        .get('users/findConst')
+        .then(res =>{
+            console.log(res.data)
+            this.setState({constlist:res.data})
         })
     }
 
@@ -134,6 +145,17 @@ class Register extends Component {
                                     onChange={this.onChange}
                                 />
                             </div>
+{/* 
+                            <div className="form-group">
+                                <label htmlFor="constname" style={{ fontSize: '30px' }}>Select Constituency</label>
+                                <select name='constname' onChange={this.onChange} className='form-control'>
+                                    <option disabled selected>---Select constituency---</option>
+                                    {this.state.constlist.map((candidate) => {
+                                        return <option value={candidate.name}>{candidate.name}</option>
+                                    })}
+                                </select>
+                            </div> */}
+
                             <p>Your account: {this.state.pubkey}</p>
                             <div className="alert alert-danger"
                                 style={{ visibility: this.state.error !== '' ? 'visible' : 'hidden' }}>{this.state.error}</div>

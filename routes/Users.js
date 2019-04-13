@@ -100,4 +100,13 @@ users.post('/findAddress', (req, res) => {
         })
 })
 
+users.get('/findConst', (req, res) => {
+    Contract.findAll({
+        attributes:['name']
+    })
+    .then(user => {
+        res.send(user)
+    })
+})
+
 module.exports = users
