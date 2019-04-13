@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import jwt_decode from 'jwt-decode'
-import { findAddress } from './dashboard/ContractFunctions'
+import { findAddress, findConsts } from './dashboard/ContractFunctions'
 
 class Profile extends Component {
     constructor() {

@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { register } from './UserFunctions'
 import Web3 from 'web3'
+import { findConsts } from './dashboard/ContractFunctions';
 
 class Register extends Component {
     constructor() {
@@ -14,7 +15,8 @@ class Register extends Component {
             UID:'',
             constname: '',
             //loading:true
-            error: ''
+            error: '',
+            constitutes:''
         }
 
         this.onChange = this.onChange.bind(this)
@@ -63,6 +65,15 @@ class Register extends Component {
             this.setState({ pubkey })
         });
 
+    }
+
+    componentWillMount(){
+        findConsts().then(res => {
+            if (res) {
+              console.log("inregister"+res);
+              //this.setState({ contractadd: res.address });
+            }
+          });
     }
 
 

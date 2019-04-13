@@ -1,13 +1,12 @@
 import axios from 'axios'
 
-export const register = newUser => {
+export const findConsts = newUser => {
     return axios
-        .post('contracts/register', {
-            name: newUser.name,
-            address: newUser.address,
+        .get('users/findConsts', {
         })
         .then(res => {
-            console.log("Registered")
+            console.log("returned from server"+res)
+            return res.data
         })
 
 }
@@ -18,8 +17,6 @@ export const findAddress = user => {
             name: user.name
         })
         .then(res => {
-            // localStorage.setItem('coninst', res.data)
-            // console.log(res.data)
             return res.data
         })
         .catch(err => {

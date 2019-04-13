@@ -103,4 +103,22 @@ users.post('/findAddress', (req, res) => {
         })
 })
 
+users.get('/findConsts', (req, res) => {
+    Contract.findAll({
+        attributes: ['name'],
+        raw:true
+    })
+        .then(user => {
+            if (user) {
+                    //let data2 = user.dataValues
+                    res.json(user) 
+            } else {
+                res.status(400).json({ error: 'User does not exist' })
+            }
+        })
+        .catch(err => {
+            res.status(400).json({ error: err })
+        })
+})
+
 module.exports = users

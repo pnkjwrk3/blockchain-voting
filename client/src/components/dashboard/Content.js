@@ -19,7 +19,7 @@ class Content extends React.Component {
           <h2 style={{ color: "green" }}>Voting hasn't started yet.</h2>
           : null
         }
-        { !this.props.hasVoted && !this.props.voteEnd?
+        { !this.props.hasVoted && !this.props.voteEnd && this.props.voteStart?
           <Form candidates={this.props.candidates} castVote={this.props.castVote} />
           : null
         }
