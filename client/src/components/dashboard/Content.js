@@ -9,9 +9,7 @@ class Content extends React.Component {
       <div>
         
         { this.props.hasVoted || this.props.voteEnd?
-          // <h4 style={{ color: "green" }}>Your Vote has been registered successfully</h4>
           <TestChart candidates={this.props.candidates} hasVoted={this.props.hasVoted} voteEnd={this.props.voteEnd}  />
-          // :null
           : <ListCandidates candidates={this.props.candidates}  />
         }
         <hr/>
@@ -23,13 +21,8 @@ class Content extends React.Component {
           <Form candidates={this.props.candidates} castVote={this.props.castVote} />
           : null
         }
-        {/* {
-          this.props.voteEnd ?
-          <TestChart candidates={this.props.candidates}  />
-          :null
-        } */}
+        <p>Constituency name:{this.props.constname}</p>
         <p>Your account: {this.props.account}</p>
-        {/* <p>Contract address:{this.props.contractadd}</p> */}
       </div>
     )
   }

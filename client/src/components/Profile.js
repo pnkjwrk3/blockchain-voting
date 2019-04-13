@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import jwt_decode from 'jwt-decode'
-import { findAddress, findConsts } from './dashboard/ContractFunctions'
+import { findAddress } from './UserFunctions'
 
 class Profile extends Component {
     constructor() {
@@ -19,7 +19,6 @@ class Profile extends Component {
     componentDidMount () {
         const token = localStorage.usertoken
         const decoded = jwt_decode(token)
-        console.log(token)
         this.setState({
             first_name: decoded.first_name,
             last_name: decoded.last_name,
@@ -33,7 +32,6 @@ class Profile extends Component {
           }
           findAddress(contload).then(res => {
             if (res) {
-              console.log(res.address);
               this.setState({ contractadd: res.address });
             }
           });

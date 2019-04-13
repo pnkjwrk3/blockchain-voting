@@ -34,3 +34,16 @@ export const login = user => {
             console.log(err)
         })
 }
+
+export const findAddress = user => {
+    return axios
+        .post('users/findAddress', {
+            name: user.name
+        })
+        .then(res => {
+            return res.data
+        })
+        .catch(err => {
+            console.log(err)
+        })
+}

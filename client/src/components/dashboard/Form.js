@@ -23,24 +23,17 @@ class Form extends React.Component {
     return (
       <form onSubmit={(event) => {
         event.preventDefault()
-        // this.props.castVote(this.candidateId.value)
         this.props.castVote(this.state.voteId)
       }}>
         <div className='form-vertical'>
           <label style={{fontSize:'30px'}}>Select Candidate</label>
-          {/* <select ref={(input) => this.candidateId = input} className='form-control'>
-            <option disabled selected>---Select candidate---</option>
-            {this.props.candidates.map((candidate) => {
-              return <option value={candidate.id}>{candidate.name}</option>
-            })}
-          </select> */}
           <RadioGroup onChange={this.onChange} value={this.state.voteId}>
           {this.props.candidates.map((candidate) => {
-              return <Radio style={radioStyle} value={candidate.id}>{candidate.name}</Radio>
+              return <Radio key={candidate.id-1} style={radioStyle} value={candidate.id}>{candidate.name}</Radio>
             })}
           </RadioGroup>
         </div>
-        <button type='submit' class='btn btn-primary'>Vote</button>
+        <button type='submit' className='btn btn-primary'>Vote</button>
         <hr />
       </form>
     )

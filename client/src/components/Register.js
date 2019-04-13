@@ -64,7 +64,6 @@ class Register extends Component {
         axios
         .get('users/findConst')
         .then(res =>{
-            //console.log(res.data[2].id)
             this.setState({constlist:res.data})
         })
     }
@@ -75,17 +74,6 @@ class Register extends Component {
         });
 
     }
-
-    componentWillMount(){
-        findConsts().then(res => {
-            if (res) {
-              console.log("inregister"+res);
-              //this.setState({ contractadd: res.address });
-            }
-          });
-    }
-
-
 
     render() {
         return (

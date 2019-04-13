@@ -48,7 +48,6 @@ class Dashboard extends React.Component {
     }); console.log(decoded.constname);
 
     //get contract address code
-    console.log("from profile"+this.props.location.state.contractadd)
     const conadd = this.props.location.state.contractadd
     //console.log(this.state.contractadd);
     if (typeof window.web3 !== 'undefined') {
@@ -78,11 +77,11 @@ class Dashboard extends React.Component {
         }
       })
       this.MyContract.methods.votingEnded().call().then((end)=>{
-        console.log(end)
+        //console.log(end)
         this.setState({voteEnd:end})
       })  
       this.MyContract.methods.votingStarted().call().then((start)=>{
-        console.log(start)
+        //console.log(start)
         this.setState({voteStart:start})
       }) 
       this.MyContract.methods.voters(decoded.pubkey).call().then((hasVoted) => {
@@ -127,7 +126,7 @@ class Dashboard extends React.Component {
               castVote={this.castVote}
               voteStart={this.state.voteStart}
               voteEnd={this.state.voteEnd}
-              // contractadd={this.state.contractadd} 
+              constname={this.state.conname} 
               />
           }
         </div>

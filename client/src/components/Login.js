@@ -52,7 +52,6 @@ class Login extends Component {
             //     this.setState({ error: res.error })
             // }
             if (res) {
-                console.log(res)
                 this.props.history.push(`/profile`)
             }
         })

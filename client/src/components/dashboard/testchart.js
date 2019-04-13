@@ -36,12 +36,11 @@ class TestChart extends React.Component {
           {this.state.show && (<div style = {{position:'relative', left:'80px', top:'5px'}}>  <Chart
             width={'700px'}
             height={'400px'}
-            chartType="Bar"
+            chartType="PieChart"
             loader={<div>Loading Chart</div>}
             data={data_temp}
             options={{
-              title: 'Results',
-              // pieSliceText: 'label',
+              title: 'Results'
             }}
             rootProps={{ 'data-testid': '1' }}
           />

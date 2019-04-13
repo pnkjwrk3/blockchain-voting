@@ -8,16 +8,14 @@ class ListCandidates extends React.Component {
           <tr>
             <th>#</th>
             <th>Name</th>
-            {/* <th>Votes</th> */}
           </tr>
         </thead>
         <tbody >
           {this.props.candidates.map((candidate) => {
             return(
-              <tr>
+              <tr key={candidate.id-1}>
                 <th>{candidate.id.toNumber()}</th>
                 <td>{candidate.name}</td>
-                {/* <td>{candidate.voteCount.toNumber()}</td> */}
               </tr>
             )
           })}
