@@ -135,7 +135,6 @@ class Register extends Component {
                                     onChange={this.onChange}
                                 />
                             </div>
- 
                             <div className="form-group">
                                 <label htmlFor="constname" >Select Constituency</label>
                                 <select name='constname' onChange={this.onChange} className='form-control'>
