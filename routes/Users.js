@@ -89,13 +89,10 @@ users.post('/findAddress', (req, res) => {
     })
         .then(user => {
             if (user) {   
-                    // let token = jwt.sign(user.dataValues, process.env.SECRET_KEY, {
-                    //     expiresIn: 1440
-                    // })
                     let data2 = user.dataValues
                     res.send(data2) 
             } else {
-                res.status(400).json({ error: 'User does not exist' })
+                res.status(400).json({ error: 'Constituency does not exist' })
             }
         })
         .catch(err => {
@@ -103,22 +100,13 @@ users.post('/findAddress', (req, res) => {
         })
 })
 
-users.get('/findConsts', (req, res) => {
+users.get('/findConst', (req, res) => {
     Contract.findAll({
-        attributes: ['name'],
-        raw:true
+        attributes:['id','name']
     })
-        .then(user => {
-            if (user) {
-                    //let data2 = user.dataValues
-                    res.json(user) 
-            } else {
-                res.status(400).json({ error: 'User does not exist' })
-            }
-        })
-        .catch(err => {
-            res.status(400).json({ error: err })
-        })
+    .then(user => {
+        res.send(user)
+    })
 })
 
 module.exports = users

@@ -1,6 +1,7 @@
 import React from 'react'
 import Chart from 'react-google-charts';
 //import { Button } from 'antd';
+import Table from './Table'
 
 class TestChart extends React.Component {
 
@@ -44,6 +45,9 @@ class TestChart extends React.Component {
             }}
             rootProps={{ 'data-testid': '1' }}
           />
+          </div> )}
+          {this.state.show && (<div style = {{position:'relative', left:'80px', top:'5px'}}> 
+           <Table candidates={this.props.candidates}></Table>
           </div> )}
         </div>
       </div>

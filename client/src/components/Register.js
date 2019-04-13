@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { register } from './UserFunctions'
 import Web3 from 'web3'
-import { findConsts } from './dashboard/ContractFunctions';
+import axios from 'axios'
 
 class Register extends Component {
     constructor() {
@@ -12,11 +12,11 @@ class Register extends Component {
             email: '',
             password: '',
             pubkey: '',
-            UID:'',
+            UID: '',
             constname: '',
             //loading:true
             error: '',
-            constitutes:''
+            constlist:[{'name':null}]
         }
 
         this.onChange = this.onChange.bind(this)
@@ -46,7 +46,7 @@ class Register extends Component {
             password: this.state.password,
             pubkey: this.state.pubkey,
             UID: this.state.UID,
-            constname:this.state.constname
+            constname: this.state.constname
         }
 
         register(user).then(res => {
@@ -57,6 +57,15 @@ class Register extends Component {
             //     this.setState({ error: res.json().error })
             // }
             this.props.history.push(`/login`)
+        })
+    }
+
+    componentWillMount(){
+        axios
+        .get('users/findConst')
+        .then(res =>{
+            //console.log(res.data[2].id)
+            this.setState({constlist:res.data})
         })
     }
 
@@ -136,15 +145,15 @@ class Register extends Component {
                                 />
                             </div>
                             <div className="form-group">
-                                <label htmlFor="constname">Constituency</label>
-                                <input type="text"
-                                    className="form-control"
-                                    name="constname"
-                                    placeholder="Enter Constituency"
-                                    value={this.state.constname}
-                                    onChange={this.onChange}
-                                />
+                                <label htmlFor="constname" >Select Constituency</label>
+                                <select name='constname' onChange={this.onChange} className='form-control'>
+                                    <option disabled value='null' selected>---Select constituency---</option>
+                                    {this.state.constlist.map((candidate) => {
+                                        return <option key={candidate.id-1} value={candidate.name}>{candidate.name}</option>
+                                    })}
+                                </select>
                             </div>
+                            
                             <p>Your account: {this.state.pubkey}</p>
                             <div className="alert alert-danger"
                                 style={{ visibility: this.state.error !== '' ? 'visible' : 'hidden' }}>{this.state.error}</div>

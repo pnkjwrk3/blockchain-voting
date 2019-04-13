@@ -1,5 +1,4 @@
 import React from 'react'
-import Chart from 'react-google-charts';
 
 class Table extends React.Component {
   render() {
