@@ -89,13 +89,10 @@ users.post('/findAddress', (req, res) => {
     })
         .then(user => {
             if (user) {   
-                    // let token = jwt.sign(user.dataValues, process.env.SECRET_KEY, {
-                    //     expiresIn: 1440
-                    // })
                     let data2 = user.dataValues
                     res.send(data2) 
             } else {
-                res.status(400).json({ error: 'User does not exist' })
+                res.status(400).json({ error: 'Constituency does not exist' })
             }
         })
         .catch(err => {
