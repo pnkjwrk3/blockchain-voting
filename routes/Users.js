@@ -102,7 +102,7 @@ users.post('/findAddress', (req, res) => {
 
 users.get('/findConst', (req, res) => {
     Contract.findAll({
-        attributes:['name']
+        attributes:['id','name']
     })
     .then(user => {
         res.send(user)

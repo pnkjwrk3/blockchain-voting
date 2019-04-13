@@ -1,5 +1,4 @@
 import React from 'react'
-import ReactDOM from 'react-dom'
 import Web3 from 'web3'
 import jwt_decode from 'jwt-decode'
 import Election from './contracts/Election.json'

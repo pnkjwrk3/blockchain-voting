@@ -16,7 +16,7 @@ class Register extends Component {
             constname: '',
             //loading:true
             error: '',
-            constlist:{'name':null}
+            constlist:[{'name':null}]
         }
 
         this.onChange = this.onChange.bind(this)
@@ -64,7 +64,7 @@ class Register extends Component {
         axios
         .get('users/findConst')
         .then(res =>{
-            console.log(res.data)
+            //console.log(res.data[2].id)
             this.setState({constlist:res.data})
         })
     }
@@ -145,17 +145,17 @@ class Register extends Component {
                                     onChange={this.onChange}
                                 />
                             </div>
-{/* 
+ 
                             <div className="form-group">
-                                <label htmlFor="constname" style={{ fontSize: '30px' }}>Select Constituency</label>
+                                <label htmlFor="constname" >Select Constituency</label>
                                 <select name='constname' onChange={this.onChange} className='form-control'>
-                                    <option disabled selected>---Select constituency---</option>
+                                    <option disabled value='null'>---Select constituency---</option>
                                     {this.state.constlist.map((candidate) => {
-                                        return <option value={candidate.name}>{candidate.name}</option>
+                                        return <option key={candidate.id-1} value={candidate.name}>{candidate.name}</option>
                                     })}
                                 </select>
-                            </div> */}
-
+                            </div>
+                            
                             <p>Your account: {this.state.pubkey}</p>
                             <div className="alert alert-danger"
                                 style={{ visibility: this.state.error !== '' ? 'visible' : 'hidden' }}>{this.state.error}</div>
