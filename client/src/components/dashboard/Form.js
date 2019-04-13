@@ -8,7 +8,7 @@ class Form extends React.Component {
     voteId:0
   }
   onChange = (nr) =>  {
-    console.log('radio checked', nr.target.value);
+    //console.log('radio checked', nr.target.value);
     this.setState({
       voteId: nr.target.value
     });
