@@ -12,3 +12,5 @@
 * modify database/db.js
 * create database 'users'
 * import users.sql file
+
+[Ethereum contracts](https://github.com/pnkjwrk3/blockchain-voting-contracts)
